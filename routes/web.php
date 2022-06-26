@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+
+Route::get('/' , 'AdminController@index')->name('admin.home');
+
+Route::get('users' , 'UserController@index')->name('users');
+
+Route::get('calls' , 'CallController@index')->name('calls');
+
+Route::get('call/user/{user}' , 'CallUserController@index')->name('calls.user');

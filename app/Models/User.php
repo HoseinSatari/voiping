@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'type',
+        'phone',
     ];
 
     /**
@@ -41,4 +43,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function operator()
+    {
+      return $this->hasMany(Call::class , 'operator_id');
+    }
+
+    public function customer()
+    {
+        return $this->hasMany(Call::class , 'customer_id');
+    }
+
+
+
 }
